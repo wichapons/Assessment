@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.Lottery;
+package com.kbtg.bootcamp.posttest.lottery;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
