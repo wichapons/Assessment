@@ -1,8 +1,12 @@
 package com.kbtg.bootcamp.posttest.lottery;
 
-import com.kbtg.bootcamp.posttest.UserTicket.UserTicket;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Entity
 @Table(name = "lottery")
@@ -12,9 +16,44 @@ public class Lottery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "lottery_number", nullable = false, unique = true)
-    @Size(min = 6, max = 6)
-    private Long lotteryNumber;
+    @Column(name = "ticket_id", nullable = false, unique = true, length = 6)
+    private String lotteryNumber;
+
+    @Column(name = "price", nullable = false)
+    private Long price;
+
+    @Column(name = "amount", nullable = false, length = 1)
+    private int amount;
+
+    public Long getId() {
+        return id;
+    }
 
 
+    public String getLotteryNumber() {
+        return lotteryNumber;
+    }
+
+    public void setLotteryNumber(String lotteryNumber) {
+        this.lotteryNumber = lotteryNumber;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }
+
+
+
