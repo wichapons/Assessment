@@ -1,8 +1,8 @@
-package com.kbtg.bootcamp.posttest.User;
+package com.kbtg.bootcamp.posttest.UserTicket;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface userRepository extends JpaRepository<User, Long> {
+public interface UserTicketRepository extends JpaRepository<UserTicket, Long> {
 }
