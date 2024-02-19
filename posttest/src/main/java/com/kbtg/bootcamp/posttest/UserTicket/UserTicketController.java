@@ -2,14 +2,13 @@ package com.kbtg.bootcamp.posttest.UserTicket;
 
 import com.kbtg.bootcamp.posttest.lottery.Lottery;
 import com.kbtg.bootcamp.posttest.lottery.LotteryService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/lotteries")
+//@RequestMapping("/lotteries")
 public class UserTicketController {
     private final UserTicketService userTicketService;
     private final LotteryService lotteryService;
@@ -19,9 +18,16 @@ public class UserTicketController {
         this.lotteryService = lotteryService;
     }
 
-    @GetMapping("")
+    @GetMapping("/lotteries")
     public List<Lottery> getAllTicket() {
         return lotteryService.findAllLotteries();
     }
+
+    @PostMapping("/users/:userId/lotteries/:ticketId")
+    public String buyTicket(@Valid @RequestParam String userId, @Valid @RequestParam String ticketId) {
+        
+        return "User's lottery tickets";
+    }
+
 }
 

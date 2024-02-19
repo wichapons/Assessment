@@ -25,6 +25,28 @@ public class Lottery {
     @Column(name = "amount", nullable = false, length = 1)
     private int amount;
 
+    @Column(name = "user_id", nullable = true)
+    private String userId;
+
+    @Column(name = "is_sold", nullable = false)
+    private boolean isSold = false;
+
+    public boolean isSold() {
+        return isSold;
+    }
+
+    public void setSold(boolean sold) {
+        isSold = sold;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public Long getId() {
         return id;
     }

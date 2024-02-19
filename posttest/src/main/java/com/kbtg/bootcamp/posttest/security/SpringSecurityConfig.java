@@ -22,7 +22,9 @@ public class SpringSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-        .authorizeHttpRequests(requests -> requests.requestMatchers(HttpMethod.GET,"/lotteries").permitAll().anyRequest().authenticated());
+        .authorizeHttpRequests(requests -> requests.requestMatchers(HttpMethod.GET,"/lotteries").permitAll()
+                .requestMatchers(HttpMethod.POST,"/users/**").permitAll()
+                .anyRequest().authenticated());
         //http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
         return http.build();
