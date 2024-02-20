@@ -27,9 +27,15 @@ public class LotteryController {
     public Lottery createLottery( @Valid @RequestBody LotteryRequestDto request)throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         System.out.println(authentication);
+        System.out.println("Got create request");
 
 
         return lotteryService.createLottery(request);
+    }
+
+    @GetMapping("/{id}")
+    public Lottery getLotteryById(@PathVariable Long id) {
+        return lotteryService.findLotteryById(id);
     }
 
 }

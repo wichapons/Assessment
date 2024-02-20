@@ -23,10 +23,10 @@ public class UserTicketController {
         return lotteryService.findAllLotteries();
     }
 
-    @PostMapping("/users/:userId/lotteries/:ticketId")
-    public String buyTicket(@Valid @RequestParam String userId, @Valid @RequestParam String ticketId) {
+    @PostMapping("/users/{userId}/lotteries/{ticketId}")
+    public String buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
         
-        return "User's lottery tickets";
+        return "User's lottery tickets ID: " + ticketId + " has been bought by user ID: " + userId;
     }
 
 }
