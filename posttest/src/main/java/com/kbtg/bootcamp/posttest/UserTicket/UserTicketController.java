@@ -18,10 +18,10 @@ public class UserTicketController {
         this.lotteryService = lotteryService;
     }
 
-    @GetMapping("/lotteries")
-    public List<Lottery> getAllTicket() {
-        return lotteryService.findAllLotteries();
-    }
+    //@GetMapping("/lotteries")
+    //public List<String> getAllTicket() {
+    //    return lotteryService.findAllLotteries();
+    //}
 
     @PostMapping("/users/{userId}/lotteries/{ticketId}")
     public String buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {

@@ -15,27 +15,30 @@ public class LotteryService {
         this.lotteryRepository = lotteryRepository;
     }
 
-    public List<Lottery> findAllLotteries() {
-        return lotteryRepository.findAll();
+    public List<String> findAllLotteries() {
+        return lotteryRepository.findAvailableTicket();
     }
 
     @Transactional
-    public  Lottery createLottery(LotteryRequestDto request) {
-
+    public String createLottery(LotteryRequestDto request) {
         try {
             Lottery lottery = new Lottery();
             lottery.setLotteryNumber(request.getTicket());
             lottery.setPrice(request.getPrice());
             lottery.setAmount(request.getAmount());
-            return lotteryRepository.save(lottery);
+            lotteryRepository.save(lottery);
+            return lottery.getLotteryNumber();
+
         } catch (Exception e) {
-            throw new NotFoundException("An error occurred while creating lottery"+ e.getMessage());
+            throw new NotFoundException("An error occurred while creating lottery");
         }
     }
 
     public Lottery findLotteryById(Long id) {
         return lotteryRepository.findById(id).orElseThrow(() -> new NotFoundException("Lottery not found"));
     }
+
+    //public List<Lottery> findLotteryBy
 
 
 }
