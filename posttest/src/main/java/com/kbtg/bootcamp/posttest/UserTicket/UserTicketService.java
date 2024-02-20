@@ -10,10 +10,14 @@ public class UserTicketService {
 
     public UserTicketService(UserTicketRepository userTicketRepository) {
         this.userTicketRepository = userTicketRepository;
+
     }
 
-    public List<UserTicket> getAllUserTicket() {
-        return userTicketRepository.findAll();
-    }
+    //buy ticket
+//    public UserTicketResponseDto buyTicket(UserTicketRequestDto request) {
+//        UserTicket userTicket = new UserTicket(request.getTicketId());
+//        userTicketRepository.save(userTicket);
+//
+//    }
 
 }

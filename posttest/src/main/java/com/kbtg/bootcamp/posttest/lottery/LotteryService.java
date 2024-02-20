@@ -1,5 +1,6 @@
 package com.kbtg.bootcamp.posttest.lottery;
 
+import com.kbtg.bootcamp.posttest.Exception.LotteryException;
 import com.kbtg.bootcamp.posttest.Exception.NotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class LotteryService {
             return lottery.getLotteryNumber();
 
         } catch (Exception e) {
-            throw new NotFoundException("An error occurred while creating lottery");
+            throw new LotteryException("Duplicate lottery ticket, please add another ticket number.");
         }
     }
 

@@ -30,7 +30,7 @@ public class Lottery {
     @Column(name = "amount", nullable = false, length = 1)
     private int amount;
 
-    @Column(name = "user_id", nullable = true)
+    @Column(name = "owner_user_id", nullable = true)
     private String userId;
 
     @JsonProperty("is_sold")

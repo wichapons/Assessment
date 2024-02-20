@@ -24,6 +24,8 @@ public class SpringSecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(requests -> requests.requestMatchers(HttpMethod.GET,"/lotteries").permitAll()
                 .requestMatchers(HttpMethod.POST,"/users/*/lotteries/*").permitAll()
+                .requestMatchers(HttpMethod.GET,"/users/*/lotteries").permitAll()
+                .requestMatchers(HttpMethod.DELETE,"/users/*/lotteries/*").permitAll()
                 .anyRequest().authenticated());
         //http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
