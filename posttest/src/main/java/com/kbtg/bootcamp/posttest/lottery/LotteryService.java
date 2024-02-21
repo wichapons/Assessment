@@ -35,11 +35,14 @@ public class LotteryService {
         }
     }
 
-    public Lottery findLotteryById(Long id) {
-        return lotteryRepository.findById(id).orElseThrow(() -> new NotFoundException("Lottery not found"));
+    //findLotteryById
+    public Lottery findLotteryById(String id) {
+        try {
+            return lotteryRepository.findByTicketId(id);
+        } catch (Exception e) {
+            throw new NotFoundException("Lottery " + id + " not found");
+        }
     }
-
-    //public List<Lottery> findLotteryBy
 
 
 }

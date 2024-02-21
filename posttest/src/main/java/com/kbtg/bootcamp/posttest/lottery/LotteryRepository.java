@@ -5,11 +5,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface LotteryRepository extends JpaRepository<Lottery, Long> {
     @Query(value = "SELECT lottery.ticket_id FROM lottery WHERE lottery.is_sold = FALSE", nativeQuery = true)
     public List<String> findAvailableTicket();
+
+    @Query(value = "SELECT * FROM lottery WHERE lottery.ticket_id = ?1", nativeQuery = true)
+    public Lottery findByTicketId(String id);
     // Btw if you read this msg I already tried "findByIsSoldFalse()" but it didn't work krub Ajarn TT"
 }
 

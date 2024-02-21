@@ -21,9 +21,10 @@ public class UserTicketController {
 
 
     @PostMapping("/users/{userId}/lotteries/{ticketId}")
-    public String buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
-        
-        return "User's lottery tickets ID: " + ticketId + " has been bought by user ID: " + userId;
+    public UserTicketResponseDto buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
+        System.out.println("User's lottery tickets ID: " + ticketId + " has been bought by user ID: " + userId);
+        return new UserTicketResponseDto(userTicketService.buyTicket(userId, ticketId));
+
     }
 
 }

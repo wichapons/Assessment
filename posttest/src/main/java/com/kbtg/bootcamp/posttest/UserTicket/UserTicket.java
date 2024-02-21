@@ -22,14 +22,14 @@ public class UserTicket {
     private Long id;
 
     @Column(name = "timestamp", nullable = false)
-    private Timestamp timestamp;
+    private Timestamp timestamp = Timestamp.valueOf(ZonedDateTime.now().toLocalDateTime());
 
 
-    @Column(name = "userId", nullable = false, unique = true, length = 10)
+    @Column(name = "userId", nullable = false, unique = false, length = 10)
     @Size(min = 10, max = 10)
     private String userId;
 
-    @Column(name = "ticketId", nullable = false, unique = true, length = 6)
+    @Column(name = "ticketId", nullable = false, unique = false, length = 6)
     @Size(min = 6, max = 6)
     private String ticketId;
 

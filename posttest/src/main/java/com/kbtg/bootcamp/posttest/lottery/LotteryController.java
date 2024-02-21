@@ -27,7 +27,7 @@ public class LotteryController {
     }
 
     @GetMapping("/{id}")
-    public Lottery getLotteryById(@PathVariable Long id) {
+    public Lottery getLotteryById(@PathVariable String id) {
         return lotteryService.findLotteryById(id);
     }
 
