@@ -1,8 +1,13 @@
 package com.kbtg.bootcamp.posttest.UserTicket;
 
-public class UserTicketResponseDto {
-    private String ticketId;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+public class UserTicketResponseDto {
+
+    private String ticketId;
     public UserTicketResponseDto(String ticketId) {
         this.ticketId = ticketId;
     }

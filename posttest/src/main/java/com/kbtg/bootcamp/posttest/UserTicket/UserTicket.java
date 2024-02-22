@@ -33,4 +33,11 @@ public class UserTicket {
     @Size(min = 6, max = 6)
     private String ticketId;
 
+    @Column(name = "action", nullable = false, unique = false)
+    private String action;
+
+//    @ManyToOne
+//    @JoinColumn(name = "ticketId", referencedColumnName = "ticket_id", insertable = false, updatable = false)
+//    private Lottery lottery;
+
 }

@@ -26,24 +26,35 @@ public class UserTicketService {
     //buy ticket
     @Transactional
    public String buyTicket(String userId, String ticketId) {
-        //check ticket is available and not bought
-        Optional<Lottery> optionalLottery = Optional.ofNullable(lotteryService.findLotteryById(ticketId));
-        //if (optionalLottery.get().isSold() == true){
-        //    throw new NotFoundException("This lottery is already sold out");
-        //}
-        //update ticket to sold
-        Lottery lottery = optionalLottery.get();
-        lottery.setSold(true);
-        lotteryRepository.save(lottery);
+        try{
+            //check ticket is available and not bought
+            Lottery optionalLottery = lotteryService.findLotteryById(ticketId);
+            if (optionalLottery.isSold() == true){
+                throw new NotFoundException("This lottery is already sold out");
+            }
+            //update ticket to sold
+            Lottery lottery = optionalLottery;
+            lottery.setSold(true);
+            lottery.setUserId(userId);
+            lotteryRepository.save(lottery);
 
-        //record transaction in user_ticket
-        UserTicket userTicket = new UserTicket();
-        userTicket.setUserId(userId);
-        userTicket.setTicketId(ticketId);
-        userTicketRepository.save(userTicket);
+            //record transaction in user_ticket
+            UserTicket userTicket = new UserTicket();
+            userTicket.setUserId(userId);
+            userTicket.setTicketId(ticketId);
+            userTicket.setAction("buy");
+            userTicketRepository.save(userTicket);
 
-        //return id of user_ticket
-        return userTicket.getId().toString();
+            System.out.println("user_ticket is saved, " + userTicket.getId());
+            System.out.println("user_ticket is saved, " + userTicket.getId().toString());
+            //return id of user_ticket
+            return userTicket.getId().toString();
+        } catch (Exception e){
+            throw new NotFoundException("The lottery ticket number " + ticketId + " is not found in our system. Please check your ticket number again.");
+        }
+
+
+
    }
 
 }
