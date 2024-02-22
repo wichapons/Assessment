@@ -26,6 +26,10 @@ public class UserTicketService {
     //buy ticket
     @Transactional
    public String buyTicket(String userId, String ticketId) {
+        //check if userId is string with number of 10 digits
+        if (userId.length() != 10 || !userId.matches("[0-9]+" ) || ticketId.length() != 6 || !ticketId.matches("[0-9]+")){
+            throw new NotFoundException("User ID or ticket ID is not valid. Please check your information again.");
+        }
         try{
             //check ticket is available and not bought
             Lottery optionalLottery = lotteryService.findLotteryById(ticketId);
@@ -45,8 +49,6 @@ public class UserTicketService {
             userTicket.setAction("buy");
             userTicketRepository.save(userTicket);
 
-            System.out.println("user_ticket is saved, " + userTicket.getId());
-            System.out.println("user_ticket is saved, " + userTicket.getId().toString());
             //return id of user_ticket
             return userTicket.getId().toString();
         } catch (Exception e){
@@ -57,9 +59,11 @@ public class UserTicketService {
     //sell ticket
     @Transactional
     public String sellTicket(String userId, String ticketId) {
+        //check if userId is string with number of 10 digits
+        if (userId.length() != 10 || !userId.matches("[0-9]+" ) || ticketId.length() != 6 || !ticketId.matches("[0-9]+")){
+            throw new NotFoundException("User ID or ticket ID is not valid. Please check your information again.");
+        }
         try{
-            System.out.println(" user ID: "+userId);
-            System.out.println(" ticket ID: "+ticketId);
             //check ticket is available and not bought
             List<Lottery> lottery = lotteryRepository.findTicketByUserId(userId);
             if (lottery.isEmpty()){
@@ -83,8 +87,6 @@ public class UserTicketService {
             userTicket.setAction("sell");
             userTicketRepository.save(userTicket);
 
-            System.out.println("user_ticket is saved, " + userTicket.getId());
-            System.out.println("user_ticket is saved, " + userTicket.getId().toString());
             //return id of user_ticket
             return ticketId;
         } catch (Exception e){

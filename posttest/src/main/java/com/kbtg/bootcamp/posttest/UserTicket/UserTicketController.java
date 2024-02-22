@@ -20,13 +20,11 @@ public class UserTicketController {
 
     @PostMapping("/users/{userId}/lotteries/{ticketId}")
     public UserTicketResponseDto buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
-        System.out.println("User's lottery tickets ID: " + ticketId + " has been bought by user ID: " + userId);
         return new UserTicketResponseDto(userTicketService.buyTicket(userId, ticketId));
     }
 
     @DeleteMapping ("/users/{userId}/lotteries/{ticketId}")
     public UserTicketResponseDto sellTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
-        System.out.println("User's lottery tickets ID: " + ticketId + " has been sold by user ID: " + userId);
         return new UserTicketResponseDto(userTicketService.sellTicket(userId, ticketId));
 
     }

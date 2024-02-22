@@ -47,6 +47,10 @@ public class LotteryService {
 
     //findLotteryByUserId
     public LotterySummaryResponseDto findLotteryByUserId(String userId) {
+        //check if userId is string with number of 10 digits
+        if (userId.length() != 10 || !userId.matches("[0-9]+" )){
+            throw new NotFoundException("User ID is not valid. Please check your user ID again.");
+        }
         try {
             List<Lottery> lotteryList = lotteryRepository.findTicketByUserId(userId);
             LotterySummaryResponseDto summary = new LotterySummaryResponseDto();

@@ -32,11 +32,8 @@ public class LotteryController {
     }
 
 @GetMapping("/users/{userId}/lotteries")
-    public LotterySummaryResponseDto getLotteryByUserId(@PathVariable String userId) {
+    public LotterySummaryResponseDto getLotteryByUserId(@Valid @PathVariable String userId) {
         //System.out.println(" UserId: " + userId + " has been found");
         return lotteryService.findLotteryByUserId(userId);
     }
-
-
-
 }
