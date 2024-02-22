@@ -26,12 +26,7 @@ public class LotteryController {
         return new LotteryResponseDto(lotteryNumber);
     }
 
-    @GetMapping("/{id}")
-    public Lottery getLotteryById(@PathVariable String id) {
-        return lotteryService.findLotteryById(id);
-    }
-
-@GetMapping("/users/{userId}/lotteries")
+    @GetMapping("/users/{userId}/lotteries")
     public LotterySummaryResponseDto getLotteryByUserId(@Valid @PathVariable String userId) {
         //System.out.println(" UserId: " + userId + " has been found");
         return lotteryService.findLotteryByUserId(userId);
