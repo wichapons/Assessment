@@ -56,6 +56,10 @@ public class Lottery {
         this.lotteryNumber = lotteryNumber;
     }
 
+
+    public String getTicketId() {
+        return lotteryNumber;
+    }
 }
 
 

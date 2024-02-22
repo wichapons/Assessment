@@ -44,6 +44,15 @@ public class LotteryService {
         }
     }
 
+    //findLotteryByUserId
+    public List<String> findLotteryByUserId(String userId) {
+        try {
+            return lotteryRepository.findOnlyTicketByUserId(userId);
+        } catch (Exception e) {
+            throw new NotFoundException("Lottery for user: " + userId + " not found" + e.getMessage());
+        }
+    }
+
 
 }
 

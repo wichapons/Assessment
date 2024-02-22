@@ -31,4 +31,13 @@ public class LotteryController {
         return lotteryService.findLotteryById(id);
     }
 
+@GetMapping("/users/{userId}/lotteries")
+    public LotteryListWithAmountResponseDto getLotteryByUserId(@PathVariable String userId) {
+        //System.out.println(" UserId: " + userId + " has been found");
+        List<String> lotteryList = lotteryService.findLotteryByUserId(userId);
+        return new LotteryListWithAmountResponseDto(lotteryList);
+    }
+
+
+
 }
