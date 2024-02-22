@@ -9,9 +9,13 @@ import java.util.List;
 @Setter
 public class LotteryListWithAmountResponseDto {
 
-    //List of tickets
-    private List<String> tickets;
-    public LotteryListWithAmountResponseDto(List<String> tickets) {
+    private List<Lottery> tickets;
+    private int amount;
+    private Long price;
+    public LotteryListWithAmountResponseDto(List<Lottery> tickets, int amount, Long price) {
         this.tickets = tickets;
+        this.amount = amount;
+        this.price = price;
     }
+
 }

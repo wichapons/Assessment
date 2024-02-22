@@ -60,6 +60,10 @@ public class Lottery {
     public String getTicketId() {
         return lotteryNumber;
     }
+
+    public void setTicketId(String ticketId) {
+        this.lotteryNumber = ticketId;
+    }
 }
 
 

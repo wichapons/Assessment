@@ -28,8 +28,8 @@ public interface LotteryRepository extends JpaRepository<Lottery, Long> {
     public void deleteTicketByTicketId(String ticketId);
 
     //find only ticket by user id
-    @Query(value = "SELECT lottery.ticket_id FROM lottery WHERE lottery.owner_user_id = ?1", nativeQuery = true)
-    public List<String> findOnlyTicketByUserId(String userId);
+    @Query(value = "SELECT l.ticket_id,l.amount,l.price FROM lottery l WHERE lottery.owner_user_id = ?1", nativeQuery = true)
+    public List<Lottery> findOnlyTicketByUserId(String userId);
 
 
 }

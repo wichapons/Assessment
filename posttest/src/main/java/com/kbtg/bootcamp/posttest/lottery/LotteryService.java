@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 
@@ -45,9 +46,29 @@ public class LotteryService {
     }
 
     //findLotteryByUserId
-    public List<String> findLotteryByUserId(String userId) {
+    public LotterySummaryResponseDto findLotteryByUserId(String userId) {
         try {
-            return lotteryRepository.findOnlyTicketByUserId(userId);
+            List<Lottery> lotteryList = lotteryRepository.findTicketByUserId(userId);
+            LotterySummaryResponseDto summary = new LotterySummaryResponseDto();
+
+            // collect ticket IDs into a list
+            List<String> ticketIds = lotteryList.stream()
+                    .map(Lottery::getTicketId)
+                    .collect(Collectors.toList());
+            summary.setTicketId(ticketIds);
+
+            // calculate total amount and price
+            int totalAmount = lotteryList.stream()
+                    .mapToInt(Lottery::getAmount)
+                    .sum();
+            summary.setAmount(totalAmount);
+
+            long totalPrice = lotteryList.stream()
+                    .mapToLong(Lottery::getPrice)
+                    .sum();
+            summary.setPrice(totalPrice);
+
+            return summary;
         } catch (Exception e) {
             throw new NotFoundException("Lottery for user: " + userId + " not found" + e.getMessage());
         }
