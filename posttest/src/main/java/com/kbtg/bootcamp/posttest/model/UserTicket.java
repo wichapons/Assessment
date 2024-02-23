@@ -1,6 +1,5 @@
-package com.kbtg.bootcamp.posttest.UserTicket;
+package com.kbtg.bootcamp.posttest.userTicket;
 
-import com.kbtg.bootcamp.posttest.lottery.Lottery;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -8,7 +7,6 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.time.ZonedDateTime;
-import java.util.List;
 
 @Entity
 @Getter

@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.UserTicket;
+package com.kbtg.bootcamp.posttest.userTicket;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

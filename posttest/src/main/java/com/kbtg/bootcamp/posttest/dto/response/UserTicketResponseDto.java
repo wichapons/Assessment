@@ -1,9 +1,7 @@
-package com.kbtg.bootcamp.posttest.UserTicket;
+package com.kbtg.bootcamp.posttest.userTicket;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter

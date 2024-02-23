@@ -1,5 +1,6 @@
 package com.kbtg.bootcamp.posttest.lottery;
 
+import com.kbtg.bootcamp.posttest.model.Lottery;
 import lombok.Getter;
 import lombok.Setter;
 
