@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.userTicket;
+package com.kbtg.bootcamp.posttest.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

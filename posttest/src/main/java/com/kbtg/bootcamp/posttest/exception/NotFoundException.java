@@ -1,7 +1,4 @@
-package com.kbtg.bootcamp.posttest.Exception;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+package com.kbtg.bootcamp.posttest.exception;
 
 
 public class NotFoundException extends  RuntimeException{

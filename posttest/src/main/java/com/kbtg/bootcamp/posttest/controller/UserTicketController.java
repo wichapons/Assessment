@@ -1,6 +1,9 @@
-package com.kbtg.bootcamp.posttest.userTicket;
+package com.kbtg.bootcamp.posttest.controller;
 
+import com.kbtg.bootcamp.posttest.dto.response.UserBuyTicketResponseDto;
 import com.kbtg.bootcamp.posttest.service.LotteryService;
+import com.kbtg.bootcamp.posttest.dto.response.UserTicketResponseDto;
+import com.kbtg.bootcamp.posttest.service.UserTicketService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.userTicket;
+package com.kbtg.bootcamp.posttest.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;

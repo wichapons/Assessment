@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.lottery;
+package com.kbtg.bootcamp.posttest.dto.request;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;

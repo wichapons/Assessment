@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.Exception;
+package com.kbtg.bootcamp.posttest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

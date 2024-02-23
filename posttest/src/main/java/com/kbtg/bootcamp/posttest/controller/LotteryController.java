@@ -1,5 +1,10 @@
-package com.kbtg.bootcamp.posttest.lottery;
+package com.kbtg.bootcamp.posttest.controller;
 
+import com.kbtg.bootcamp.posttest.dto.request.LotteryRequestDto;
+import com.kbtg.bootcamp.posttest.dto.response.LotteryListResponseDto;
+import com.kbtg.bootcamp.posttest.dto.response.LotteryResponseDto;
+import com.kbtg.bootcamp.posttest.dto.response.LotterySummaryResponseDto;
+import com.kbtg.bootcamp.posttest.service.LotteryService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

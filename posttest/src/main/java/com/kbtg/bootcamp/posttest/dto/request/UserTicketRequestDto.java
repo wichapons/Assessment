@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.userTicket;
+package com.kbtg.bootcamp.posttest.dto.request;
 
 import jakarta.validation.constraints.Size;
 import lombok.Getter;

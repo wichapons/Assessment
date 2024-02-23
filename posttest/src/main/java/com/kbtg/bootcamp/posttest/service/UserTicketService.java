@@ -1,8 +1,10 @@
-package com.kbtg.bootcamp.posttest.userTicket;
+package com.kbtg.bootcamp.posttest.service;
 
 import com.kbtg.bootcamp.posttest.exception.NotFoundException;
 import com.kbtg.bootcamp.posttest.model.Lottery;
-import com.kbtg.bootcamp.posttest.lottery.LotteryRepository;
+import com.kbtg.bootcamp.posttest.model.UserTicket;
+import com.kbtg.bootcamp.posttest.repository.LotteryRepository;
+import com.kbtg.bootcamp.posttest.repository.UserTicketRepository;
 import com.kbtg.bootcamp.posttest.service.LotteryService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

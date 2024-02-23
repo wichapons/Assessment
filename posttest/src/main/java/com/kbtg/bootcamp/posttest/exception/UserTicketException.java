@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.Exception;
+package com.kbtg.bootcamp.posttest.exception;
 
 public class UserTicketException extends RuntimeException{
     public UserTicketException(String message) {

@@ -1,4 +1,4 @@
-package com.kbtg.bootcamp.posttest.lottery;
+package com.kbtg.bootcamp.posttest.dto.response;
 
 import com.kbtg.bootcamp.posttest.model.Lottery;
 import lombok.Getter;
