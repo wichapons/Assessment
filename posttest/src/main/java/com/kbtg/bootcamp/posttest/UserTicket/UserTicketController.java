@@ -19,8 +19,8 @@ public class UserTicketController {
     }
 
     @PostMapping("/users/{userId}/lotteries/{ticketId}")
-    public UserTicketResponseDto buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
-        return new UserTicketResponseDto(userTicketService.buyTicket(userId, ticketId));
+    public UserBuyTicketResponseDto buyTicket(@Valid @PathVariable  String userId, @Valid @PathVariable String ticketId) {
+        return new UserBuyTicketResponseDto(userTicketService.buyTicket(userId, ticketId));
     }
 
     @DeleteMapping ("/users/{userId}/lotteries/{ticketId}")

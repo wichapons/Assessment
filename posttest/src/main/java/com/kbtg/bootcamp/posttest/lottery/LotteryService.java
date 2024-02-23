@@ -59,18 +59,18 @@ public class LotteryService {
             List<String> ticketIds = lotteryList.stream()
                     .map(Lottery::getTicketId)
                     .collect(Collectors.toList());
-            summary.setTicketId(ticketIds);
+            summary.setTickets(ticketIds);
 
             // calculate total amount and price
             int totalAmount = lotteryList.stream()
                     .mapToInt(Lottery::getAmount)
                     .sum();
-            summary.setAmount(totalAmount);
+            summary.setCount(totalAmount);
 
             long totalPrice = lotteryList.stream()
                     .mapToLong(Lottery::getPrice)
                     .sum();
-            summary.setPrice(totalPrice);
+            summary.setCost(totalPrice);
 
             return summary;
         } catch (Exception e) {

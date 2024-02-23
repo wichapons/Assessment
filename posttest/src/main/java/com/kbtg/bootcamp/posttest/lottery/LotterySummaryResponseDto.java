@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 public class LotterySummaryResponseDto {
-    private List<String> ticketId;
-    private int amount;
-    private Long price;
+    private List<String> tickets;
+    private int count;
+    private Long cost;
 }
